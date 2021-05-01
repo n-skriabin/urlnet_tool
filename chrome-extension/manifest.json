@@ -1,0 +1,29 @@
+{
+	"manifest_version": 2,
+	"name": "URLNet AI",
+	"description": "Extension for detecting phishing and malicious URL addresses.",
+	"version": "1.0.2",
+	"icons": { "16": "images/urlnet_icon16.png",
+               "48": "images/urlnet_icon48.png",
+               "128": "images/urlnet_icon128.png" 
+            },
+	"browser_action": {
+		"default_popup": "popup.html",
+		"default_icon": "images/urlnet_icon128.png"
+	},
+	"permissions": [
+        "http://*/*",
+        "tabs",
+        "notifications",
+        "management"
+    ],
+    "content_scripts": [
+        {
+          "matches": [ "http://*/*", "https://*/*" ],
+          "js": [ "js/contentscript.js" ]
+        }
+    ],
+    "background": {
+        "scripts":[ "js/background.js" ]
+    }
+}

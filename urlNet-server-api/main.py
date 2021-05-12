@@ -5,6 +5,7 @@ from urlnet import *
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api, Resource, reqparse
+from util import exit_on_busy_port
 
 app = Flask(__name__)
 api = Api(app)
@@ -36,4 +37,8 @@ def check_url_vt(url=""):
                 
         return { "vt_confirmed": False }, 200
 
+        
+
+
+exit_on_busy_port()
 app.run(debug=True)
